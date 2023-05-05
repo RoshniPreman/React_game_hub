@@ -3,7 +3,7 @@ import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from 'r
 import { MdPhoneIphone } from 'react-icons/md';
 import { SiNintendo } from 'react-icons/si';
 import { BsGlobe } from 'react-icons/bs';
-import { Icon } from '@chakra-ui/react';
+import { Icon, HStack } from '@chakra-ui/react';
 import { IconType } from "react-icons";
 
 interface Prop {
@@ -23,7 +23,9 @@ const PlatformIconList = ( { platforms }: Prop) => {
     }
 
     return <>
+    <HStack>
         { platforms.map( platform => <Icon as={iconMap[platform.slug]} color={'gray.500'} />) }
+    </HStack>
     </>
 }
 
