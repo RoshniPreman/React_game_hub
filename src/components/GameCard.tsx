@@ -1,6 +1,7 @@
 import { Card, CardBody, CardFooter, Text, Image, HStack, Heading, Divider, Stack } from '@chakra-ui/react'
 import { AiFillWindows } from 'react-icons/ai'
 import { Game } from '../hooks/useGames';
+import PlatformIconList from './PlatformIconList';
 interface Prop {
     game: Game
 }
@@ -11,32 +12,11 @@ const GameCard = ({ game }: Prop) => {
                <Card borderRadius={10} overflow={'hidden'}>
                     <Image src={ game.background_image }/>
                     <CardBody>
-                    <HStack>
-                         <AiFillWindows />
-                         <AiFillWindows />
-                         <AiFillWindows />
-                         <AiFillWindows />
-                         <AiFillWindows />
-                    </HStack>
-                    <Stack>
-                        <Heading size={'md'}>{game.name}</Heading>
-                    </Stack>
+                        <Heading fontSize={'2xl'}>{game.name}</Heading>
+                        <HStack marginY={1}>
+                            <PlatformIconList platforms={game.parent_platforms.map( platform => platform.platform)} />
+                        </HStack>
                     </CardBody>
-                    {/* <CardBody>
-      <Stack>
-        <Heading pt={6} size={'md'}>Living room sofa</Heading>
-        <Text>
-        This sofa is perfect for modern tropical spaces, baroque inspired
-        spaces, earthy toned spaces and for people who love a chic design with a
-        sprinkle of vintage design.
-      </Text>
-      <Text fontSize={'2xl'} color={'blue.200'}>$450</Text>
-      </Stack>
-        </CardBody>
-        <Divider />
-        <CardFooter>
-
-        </CardFooter> */}
                </Card>
             </>
         )
