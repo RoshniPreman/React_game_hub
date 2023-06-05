@@ -9,8 +9,6 @@ export interface Genre {
   image_background: string;
 }
 
-// const useGenres = () => ({ data: genres, isLoading: false, error: false})
-
 const useGenres = () => {
   return useQuery({
     queryKey: ["genre"],
