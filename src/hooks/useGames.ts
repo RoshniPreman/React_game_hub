@@ -1,7 +1,7 @@
-import { GameQuery } from "../App";
 import APIClient from "../services/api-client";
 import { useQuery } from "@tanstack/react-query";
 import { Platform } from "./usePlatforms";
+import useGameQueryStore from "../store/gameQueryStore";
 
 export interface Game {
   id: number;
@@ -12,7 +12,8 @@ export interface Game {
   rating_top: number;
 }
 
-const useGames = (selectedGameQuery: GameQuery) => {
+const useGames = () => {
+  const { gameQuery: selectedGameQuery } = useGameQueryStore();
   const apiClient = new APIClient<Game>("games");
 
   return useQuery<Game[], Error>({
